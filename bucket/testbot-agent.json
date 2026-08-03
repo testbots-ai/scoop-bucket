@@ -1,0 +1,23 @@
+{
+  "version": "0.1.2",
+  "description": "Run Testbots.ai tests locally with Playwright",
+  "homepage": "https://testbots.ai",
+  "license": "Proprietary",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/testbots-ai/testbot-agent-releases/releases/download/v0.1.2/testbot-agent-windows-x64.zip",
+      "hash": "fdc4e0be129fbbb0f8da2877c8dd5ff5d429eda49557d4fca10e405c2d13e7fc",
+      "bin": "testbot-agent.cmd"
+    }
+  },
+  "checkver": {
+    "github": "https://github.com/testbots-ai/testbot-agent-releases"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/testbots-ai/testbot-agent-releases/releases/download/v$version/testbot-agent-windows-x64.zip"
+      }
+    }
+  }
+}
