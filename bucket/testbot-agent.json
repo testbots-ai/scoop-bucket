@@ -1,15 +1,23 @@
 {
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Run Testbots.ai tests locally with Playwright",
   "homepage": "https://testbots.ai",
   "license": "Proprietary",
   "architecture": {
     "64bit": {
-      "url": "https://github.com/testbots-ai/testbot-agent-releases/releases/download/v0.1.5/testbot-agent-windows-x64.zip",
-      "hash": "f35af5d35c2399873234860b037ab4c627916cc4d1cfb9691b004808883e4274",
+      "url": "https://github.com/testbots-ai/testbot-agent-releases/releases/download/v0.1.6/testbot-agent-windows-x64.zip",
+      "hash": "62ca8910b28056a7ed192b02d83c73c945a19a9dfdc47007335029b03282c421",
       "bin": "testbot-agent.cmd"
     }
   },
+  "post_install": [
+    "try {",
+    "  Add-MpPreference -ExclusionPath \"$env:LOCALAPPDATA\\ms-playwright\" -ErrorAction Stop",
+    "  Write-Host \"testbot-agent: added a Windows Defender exclusion for $env:LOCALAPPDATA\\ms-playwright\"",
+    "} catch {",
+    "  Write-Host \"testbot-agent: couldn't add a Windows Defender exclusion automatically (this needs an elevated PowerShell, or a different antivirus is active). If Chromium hangs on launch later, run 'testbot-agent reset-browser' from an elevated prompt, or exclude that folder manually.\"",
+    "}"
+  ],
   "checkver": {
     "github": "https://github.com/testbots-ai/testbot-agent-releases"
   },
